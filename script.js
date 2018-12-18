@@ -1,6 +1,9 @@
 var origBoard;
-const player1 = 'O';
-const playerAI = 'X';
+var player = '1';
+const player1 = '<img src=img/4.png>';
+const player2 = '<img src=img/7.png>';
+const playerAI = '<img src=img/7.png>';
+var players = false;
 var winPlayer1 = 0
 var winPlayerAI = 0
 var ties = 0
@@ -19,6 +22,7 @@ var i;
 const cells = document.querySelectorAll('.cell');
 startGame();
 
+
 function startGame(){
     document.querySelector(".endGame").style.display = "none";
     origBoard = Array.from(Array(9).keys());
@@ -30,16 +34,45 @@ function startGame(){
     }
 }
 
-function turnClick(square){
+function switchPlayer(){
+
+    startGame();
+
+    var elem = document.querySelector(".players");
+    if(elem.innerText == "2 PLAYERS"){
+        document.querySelector(".players").innerText = "1 PLAYER";
+        players = true;
+    }else if(elem.innerText == "1 PLAYER"){
+        document.querySelector(".players").innerText = "2 PLAYERS";
+        players = false;
+    }
+
+    console.log(elem.innerText);
+}
+
+function turnClick(square, switchPlayer){
     if(typeof origBoard[square.target.id] == 'number'){
-        turn(square.target.id, player1);
-        if(!checkTie()) turn(bestSpot(), playerAI);
+
+        if(players == true){
+
+            if(player == 1){
+                if(!checkTie()) turn(square.target.id, player1);
+                player = 2
+            }else if(player == 2){
+                if(!checkTie()) turn(square.target.id, player2);
+                player = 1  
+            }
+
+        }else if(players == false){
+            turn(square.target.id, player1);
+            if(!checkTie()) turn(bestSpot(), playerAI);
+        }
     }
 } 
 
 function turn(squareId, player){
     origBoard[squareId] = player;
-    document.getElementById(squareId).innerText = player;
+    document.getElementById(squareId).innerHTML = player;
     let gameWon = checkWin(origBoard, player)
     if (gameWon) gameOver(gameWon)
 }
