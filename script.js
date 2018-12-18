@@ -1,8 +1,8 @@
 var origBoard;
 var player = '1';
-const player1 = '<img src=img/4.png>';
-const player2 = '<img src=img/7.png>';
-const playerAI = '<img src=img/7.png>';
+var player1 = '';
+var player2 = '<img src=img/7.png>';
+const playerAI = '<img src=img/25.png>';
 var players = false;
 var winPlayer1 = 0
 var winPlayerAI = 0
@@ -22,10 +22,34 @@ var i;
 const cells = document.querySelectorAll('.cell');
 startGame();
 
+function pokemonChoose(img, switchplayer){
+    var src = img;
+
+    if(players == true){
+        player1 = src;
+        document.querySelector(".choosePokemon").style.display = "none";
+        document.querySelector(".choosePokemon2").style.display = "flex";
+    }else{
+        player1 = src;
+        document.querySelector(".choosePokemon").style.display = "none";        
+    }
+}
+
+function pokemonChoose2(img, switchplayer){
+    var src = img;
+
+    if(players == true){
+        player2 = src;
+        document.querySelector(".choosePokemon2").style.display = "none";
+    }
+}
+
 
 function startGame(){
     document.querySelector(".endGame").style.display = "none";
     origBoard = Array.from(Array(9).keys());
+
+    player = '1';
     
     for ( i = 0; i < cells.length; i ++){
         cells[i].innerText = '';
@@ -37,9 +61,10 @@ function startGame(){
 function switchPlayer(){
 
     startGame();
+    document.querySelector(".choosePokemon").style.display = "flex";
 
     var elem = document.querySelector(".players");
-    if(elem.innerText == "2 PLAYERS"){
+    if(elem.innerText == "2 PLAYERS"){  
         document.querySelector(".players").innerText = "1 PLAYER";
         players = true;
     }else if(elem.innerText == "1 PLAYER"){

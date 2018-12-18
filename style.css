@@ -31,12 +31,10 @@ body{
     padding: 50px 25px;
 }
 
-.choosePokemon{
-    display: none;
+.choosePokemon, .choosePokemon2{
     left: 50%;
     margin-left: -150px;
     width: 300px;
-    display: flex;
     justify-content: center;
     flex-direction: column;
     top: 105px;
@@ -44,6 +42,14 @@ body{
     position: absolute;
     border-radius: 5px;
     padding: 20px 0;
+}
+
+.choosePokemon{
+    display: flex;
+}
+
+.choosePokemon2{
+    display: none
 }
 
 .pokemon{
@@ -54,6 +60,7 @@ body{
 
 .pokemon img{
     width: 75px;
+    height: 75px;
     
 }
 
