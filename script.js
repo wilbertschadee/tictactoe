@@ -1,6 +1,9 @@
 var origBoard;
 const player1 = 'O';
 const playerAI = 'X';
+var winPlayer1 = 0
+var winPlayerAI = 0
+var ties = 0
 const winCombos =[
     [0, 1, 2],
     [3, 4, 5],
@@ -63,6 +66,7 @@ function gameOver(gameWon){
         cells[i].removeEventListener('click', turnClick, false);
     }
     declareWinner(gameWon.player == player1 ? "You win" : "You lose");
+    gameScore(gameWon)
 }
 
 function declareWinner(who){
@@ -83,8 +87,29 @@ function checkTie(){
         for( i = 0; i < cells.length; i ++){
             cells[i].removeEventListener('click', turnClick, false);
         }
-        declareWinner('Tie Game')
+        declareWinner('Tie Game');
+        gameScore(emptySquares);
         return true;
     }
     return false;
+}
+
+
+
+function gameScore(gameWon){
+
+console.log(gameWon);
+
+    if(gameWon.player == player1){
+        winPlayer1 ++;
+        document.querySelector('#score1').innerText = winPlayer1;
+        
+    }else if(gameWon.player == playerAI){
+        winPlayerAI ++
+        document.querySelector('#score2').textContent = winPlayerAI;
+    }else if(emptySquares().length == 0){
+        ties ++
+        document.querySelector('#score3').textContent = ties;
+    }
+   
 }
