@@ -62,6 +62,7 @@ function gameOver(gameWon){
     for (i = 0; i < cells.length; i++){
         cells[i].removeEventListener('click', turnClick, false);
     }
+    declareWinner(gameWon.player == player1 ? "You win" : "You lose");
 }
 
 function declareWinner(who){
