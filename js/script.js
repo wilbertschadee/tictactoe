@@ -2,7 +2,7 @@ var origBoard;
 var player = '1';
 var player1 = '';
 var player2 = '<img src=img/7.png>';
-const playerAI = '<img src=img/25.png>';
+const playerAI = '<img src=img/25.png alt=Pikachu>';
 var players = false;
 var winPlayer1 = 0
 var winPlayerAI = 0
