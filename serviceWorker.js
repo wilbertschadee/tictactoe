@@ -29,7 +29,7 @@ self.addEventListener('activate', event => {
                 cacheNames.map(cache => {
                     if (cache !== cacheName) {
                         console.log('Service Worker: Clearing Old Cache');
-                        return caches.deleted(cache);
+                        return caches.delete(cache);
                     }
                 })
             );
