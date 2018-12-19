@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>tic tac toe</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -49,7 +50,11 @@
 
     <div class="endGame">
         <div class="text"></div>
+        <div class="buttons">
+        <div class="button">
         <button onClick="startGame()">REMATCH</button>
+        </div>
+        </div>
     </div>
 
     <div class="choosePokemon">
@@ -72,10 +77,14 @@
             </div>
         </div>
 
-    <DIV class="button">
-    <button onClick="startGame()">RESTART</button>
-    <button class="players" onClick="switchPlayer()">2 PLAYERS</button>
-    </DIV>
+    <div class="buttons">
+        <div class="button">
+            <button onClick="startGame()">RESTART</button>
+        </div>
+        <div class="button">
+            <button class="players" onClick="switchPlayer()">2 PLAYERS</button>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
     <script src="js/swReg.js"></script>

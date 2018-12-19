@@ -20,7 +20,7 @@ const winCombos =[
 var i;
 
 const cells = document.querySelectorAll('.cell');
-startGame();
+
 
 function pokemonChoose(img, switchplayer){
     var src = img;
@@ -29,11 +29,15 @@ function pokemonChoose(img, switchplayer){
         player1 = src;
         document.querySelector(".choosePokemon").style.display = "none";
         document.querySelector(".choosePokemon2").style.display = "flex";
+        startGame();
     }else{
         player1 = src;
-        document.querySelector(".choosePokemon").style.display = "none";        
+        document.querySelector(".choosePokemon").style.display = "none"; 
+        startGame();      
     }
 }
+
+
 
 function pokemonChoose2(img, switchplayer){
     var src = img;
@@ -55,6 +59,7 @@ function startGame(){
         cells[i].innerText = '';
         cells[i].style.removeProperty('background-color');
         cells[i].addEventListener('click', turnClick, false);
+        cells[i].style.cursor = "pointer";
     }
 }
 
@@ -118,12 +123,13 @@ function checkWin(board, player){
 function gameOver(gameWon){
     for(let index of winCombos[gameWon.index]){
         document.getElementById(index).style.backgroundColor =
-        gameWon.player == player1 ? "blue" : "red";
+        gameWon.player == player1 ? "blue" : gameWon.player == player2 ? "blue" : "red";
     }
     for (i = 0; i < cells.length; i++){
         cells[i].removeEventListener('click', turnClick, false);
+        cells[1].style.removeProperty('cursor');
     }
-    declareWinner(gameWon.player == player1 ? "You win" : "You lose");
+    declareWinner(gameWon.player == player1 ? "Player 1 Wins" : gameWon.player == player2? "Player 2 Wins" : "You Lose");
     gameScore(gameWon)
 }
 
