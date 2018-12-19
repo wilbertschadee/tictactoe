@@ -1,7 +1,7 @@
 {
   "name": "TicTacToe",
   "short_name": "TicTacToe",
-  "theme_color": "#e3340d",
+  "theme_color": "#f32d2d",
   "background_color": "#e3340d",
   "display": "fullscreen",
   "orientation": "portrait",

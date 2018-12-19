@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#e3340d"/>
+    <meta name="theme-color" content="#f32d2d"/>
     <meta name="Description" content="Pokemon Themed TicTacToe.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -58,7 +58,8 @@
     </div>
 
     <div class="choosePokemon">
-        <p style="margin: auto"><span>Player 1 </span>Choose a pokemon</p>
+        <p style="margin: auto; font-size: 20px;">Player 1 </p>
+        <p style="margin: auto">Choose a pokemon</p>
         <div class="pokemon">
             <img onclick="javascript:pokemonChoose('<img src=img/1.png alt=bulbasaur>')" src=img/1.png alt=Bulbasaur>
             <img onclick="javascript:pokemonChoose('<img src=img/4.png alt=charmander>')" src=img/4.png alt=Charmander>
@@ -68,7 +69,8 @@
     </div>
 
     <div class="choosePokemon2">
-            <p style="margin: auto"><span>Player 2 </span>Choose a pokemon</p>
+            <p style="margin: auto; font-size: 20px;">Player 2 </p>
+            <p style="margin: auto">Choose a pokemon</p>
             <div class="pokemon">
                 <img onclick="javascript:pokemonChoose2('<img src=img/1.png>')" src=img/1.png>
                 <img onclick="javascript:pokemonChoose2('<img src=img/4.png>')" src=img/4.png>
@@ -85,6 +87,8 @@
             <button class="players" onClick="switchPlayer()">2 PLAYERS</button>
         </div>
     </div>
+
+    <div class="start"></div>
 
     <script src="js/script.js"></script>
     <script src="js/swReg.js"></script>
