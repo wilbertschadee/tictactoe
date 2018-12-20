@@ -88,7 +88,40 @@
         </div>
     </div>
 
-    <div class="start"></div>
+    <div class="start">
+        <img src="img/professorOak.png" alt="Professor Oak">
+
+            <div onclick="javascript:next('text1', 'text2')" class="box" id="text1">
+                <p>Hello there! Welcome to the world of POKEMON! My name is OAK!
+                People call me the POKEMON PROF!</p> <i></i>
+            </div>
+            <div onclick="next('text2', 'text3')" class="box" id="text2">
+                <p>This world is inhabited by creatures called POKEMON! For some
+                people, POKEMON are pets. Others use them for fights.</p> <i></i></div>
+            <div onclick="next('text3', 'text4')" class="box" id="text3">
+                <p>Myself...<br>
+                I study POKEMON as a profession.</p><i></i></div>
+            <div onclick="javascript:nameFunc('player1', 'Red', 'text4', 'text5')" class="box" id="text4">
+                <p>First, what is your name?</p><i></i>
+            </div>
+            <div  onclick="javascript:next('text5', 'text6')" class="box" id="text5">
+                <p>Right! So your name is <span id=player1></span> !</p> <i></i>
+            </div>
+            <div  onclick="javascript:nameFunc('player2', 'Bleu', 'text6', 'text7')" class="box" id="text6">
+                <p>Here is your rival. He's been your rival since you were a baby.
+                ...Erm, what is his name again?</p> <i></i>
+            </div>
+            <div  onclick="javascript:next('text7', 'text8')" class="box" id="text7">
+                <p>That's right! I remember now! His name is <span id=player2></span> !</p> <i></i>
+            </div>
+            <div  onclick="javascript:fadeOutEffect()" class="box" id="text8">
+                <P>Your very own POKEMON legend is about to unfold! A world of
+                dreams and adventures with POKEMON awaits! Let's go!</P> <i></i>
+            </div>
+            
+
+        </div>
+    
 
     <script src="js/script.js"></script>
     <script src="js/swReg.js"></script>

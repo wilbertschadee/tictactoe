@@ -51,6 +51,7 @@ function pokemonChoose2(img, switchplayer){
 
 function startGame(){
     document.querySelector(".endGame").style.display = "none";
+   
     origBoard = Array.from(Array(9).keys());
 
     player = '1';
@@ -158,8 +159,6 @@ function checkTie(){
     return false;
 }
 
-
-
 function gameScore(gameWon){
 
 console.log(gameWon);
@@ -177,3 +176,42 @@ console.log(gameWon);
     }
    
 }
+
+function next(prev, next){
+
+    document.getElementById(prev).style.display = 'none';
+    document.getElementById(next).style.display = 'block';
+}
+
+function nameFunc(player, name, prev, next) {
+    var person = prompt("Please enter your name", name);
+    if (person != null) {
+        document.getElementById(player).innerHTML = person;
+        document.getElementById(prev).style.display = 'none';
+        document.getElementById(next).style.display = 'block';
+    }
+}
+
+function fadeOutEffect()
+{
+    var fadeTarget = document.querySelector(".start");
+    var fadeEffect = setInterval(function() {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+            if(fadeTarget.style.opacity == 0){
+        fadeTarget.style.display = "none";
+        }
+        } else {
+            clearInterval(fadeEffect);
+        }
+        console.log(fadeTarget.style.opacity)
+        
+    }, 200);
+    
+
+    
+}
+
