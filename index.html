@@ -33,9 +33,9 @@
         
         <table>
             <tr>
-                <td class="scoreBoard">wins</td>
+                <td class="scoreBoard">player1</td>
                 <td class="scoreBoard">ties</td>
-                <td class="scoreBoard">loses</td>
+                <td class="scoreBoard">player2</td>
             </tr>
             <tr>
                 <td class="scoreBoard" id="score1">0</td>
@@ -75,49 +75,51 @@
     </div>
 
     <div class="choosePokemon2">
-            <p class="person2" style="margin: auto; font-size: 20px;">Player 2 </p>
-            <p style="margin: auto">Choose a pokemon</p>
-            <div class="pokemon">
-                <img onclick="javascript:pokemonChoose2('<img src=img/1.png>')" src=img/1.png>
-                <img onclick="javascript:pokemonChoose2('<img src=img/4.png>')" src=img/4.png>
-                <img onclick="javascript:pokemonChoose2('<img src=img/7.png>')" src=img/7.png>
-            </div>
+        <p class="person2" style="margin: auto; font-size: 20px;">Player 2 </p>
+        <p style="margin: auto">Choose a pokemon</p>
+        <div class="pokemon">
+            <img class="choose" onclick="javascript:pokemonChoose2('<img src=img/1.png>')" src=img/1.png>
+            <img class="choose" onclick="javascript:pokemonChoose2('<img src=img/4.png>')" src=img/4.png>
+            <img class="choose" onclick="javascript:pokemonChoose2('<img src=img/7.png>')" src=img/7.png>
         </div>
+    </div>
 
     <div class="start">
-        <img src="img/professorOak.png" alt="Professor Oak">
+        <img id="oak" src="img/professorOak.png" alt="Professor Oak">
 
-            <div onclick="javascript:next('text1', 'text2')" class="box" id="text1">
-                <p>Hello there! Welcome to the world of POKEMON! My name is OAK!
-                People call me the POKEMON PROF!</p> <i></i>
-            </div>
-            <div onclick="next('text2', 'text3')" class="box" id="text2">
-                <p>This world is inhabited by creatures called POKEMON! For some
-                people, POKEMON are pets. Others use them for fights.</p> <i></i></div>
-            <div onclick="next('text3', 'text4')" class="box" id="text3">
-                <p>Myself...<br>
-                I study POKEMON as a profession.</p><i></i></div>
-            <div onclick="javascript:nameFunc('.player1', 'Red', 'text4', 'text5')" class="box" id="text4">
-                <p>First, what is your name?</p><i></i>
-            </div>
-            <div  onclick="javascript:next('text5', 'text6')" class="box" id="text5">
-                <p>Right! So your name is <span class=player1></span> !</p> <i></i>
-            </div>
-            <div  onclick="javascript:nameFunc('.player2', 'Bleu', 'text6', 'text7')" class="box" id="text6">
-                <p>Here is your rival. He's been your rival since you were a baby.
-                ...Erm, what is his name again?</p> <i></i>
-            </div>
-            <div  onclick="javascript:next('text7', 'text8')" class="box" id="text7">
-                <p>That's right! I remember now! His name is <span class=player2></span> !</p> <i></i>
-            </div>
-            <div  onclick="javascript:fadeOutEffect()" class="box" id="text8">
-                <P>Your very own POKEMON legend is about to unfold! A world of
-                dreams and adventures with POKEMON awaits! Let's go!</P> <i></i>
-            </div>
-            
-
+        <div onclick="javascript:next('text1', 'text2')" class="box" id="text1">
+            <p>Hello there! Welcome to the world of POKEMON! My name is OAK!
+            People call me the POKEMON PROF!</p> <i></i>
         </div>
-    
+        <div onclick="next('text2', 'text3')" class="box" id="text2">
+            <p>This world is inhabited by creatures called POKEMON! For some
+            people, POKEMON are pets. Others use them for fights.</p> <i></i></div>
+        <div onclick="next('text3', 'text4')" class="box" id="text3">
+            <p>Myself...<br>
+            I study POKEMON as a profession.</p><i></i></div>
+        <div onclick="javascript:nameFunc('.player1', 'Red', 'text4', 'text5')" class="box" id="text4">
+            <p>First, what is your name?</p><i></i>
+        </div>
+        <div  onclick="javascript:next('text5', 'text6')" class="box" id="text5">
+            <p>Right! So your name is <span class=player1></span> !</p> <i></i>
+        </div>
+        <div  onclick="javascript:nameFunc('.player2', 'Blue', 'text6', 'text7')" class="box" id="text6">
+            <p>Here is your rival. He's been your rival since you were a baby.
+            ...Erm, what is his name again?</p> <i></i>
+        </div>
+        <div  onclick="javascript:next('text7', 'text8')" class="box" id="text7">
+            <p>That's right! I remember now! His name is <span class=player2></span> !</p> <i></i>
+        </div>
+        <div  onclick="javascript:fadeOutEffect()" class="box" id="text8">
+            <P>Your very own POKEMON legend is about to unfold! A world of
+            dreams and adventures with POKEMON awaits! Let's go!</P> <i></i>
+        </div>
+        <br>
+        <div class="button" style="margin:auto;">
+        <button style="background-color: #f2f2f2; color: #313131;" onclick="fadeOutEffect()">skip</button>
+        </div>
+    </div>
+
 
     <script src="js/script.js"></script>
     <script src="js/swReg.js"></script>

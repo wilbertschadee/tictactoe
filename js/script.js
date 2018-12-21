@@ -22,10 +22,7 @@ var i;
 var name1 = window.sessionStorage.getItem("player1");
 var name2 = window.sessionStorage.getItem("player2");
 
-var names = Array;
-
 const cells = document.querySelectorAll('.cell');
-
 
 function pokemonChoose(img, switchplayer){
     var src = img;
@@ -90,7 +87,7 @@ function turnClick(square, switchPlayer){
     if(typeof origBoard[square.target.id] == 'number'){
 
         if(players == true){
-
+            
             if(player == 1){
                 if(!checkTie()){ 
                     turn(square.target.id, player1);
@@ -134,7 +131,7 @@ function checkWin(board, player){
     return gameWon;
 }
 
-function gameOver(gameWon, names){
+function gameOver(gameWon){
     for(let index of winCombos[gameWon.index]){
         document.getElementById(index).style.backgroundColor =
         gameWon.player == player1 ? "blue" : gameWon.player == player2 ? "blue" : "yellow";
@@ -143,7 +140,7 @@ function gameOver(gameWon, names){
         cells[i].removeEventListener('click', turnClick, false);
         cells[i].style.removeProperty('cursor');
     }
-    declareWinner(gameWon.player == player1 ? name1 + " Wins" : gameWon.player == player2 ? name2 + " Wins" : "You Lose");
+    declareWinner(gameWon.player == player1 ? "player 1 Wins" : gameWon.player == player2 ? "player 2 Wins" : "You Lose");
     gameScore(gameWon)
 }
 
@@ -157,7 +154,7 @@ function emptySquares(){
 }
 
 function bestSpot(){
-    return emptySquares() [0];
+    return miniMax(origBoard, playerAI).index;
 }
 
 function checkTie(){
@@ -170,6 +167,57 @@ function checkTie(){
         return true;
     }
     return false;
+}
+
+function miniMax(newBoard, player) {
+	var availSpots = emptySquares();
+
+	if (checkWin(newBoard, player1)) {
+		return {score: -10};
+	} else if (checkWin(newBoard, playerAI)) {
+		return {score: 10};
+	} else if (availSpots.length === 0) {
+		return {score: 0};
+	}
+	var moves = [];
+	for (var i = 0; i < availSpots.length; i++) {
+		var move = {};
+		move.index = newBoard[availSpots[i]];
+		newBoard[availSpots[i]] = player;
+
+		if (player == playerAI) {
+			var result = miniMax(newBoard, player1);
+			move.score = result.score;
+		} else {
+			var result = miniMax(newBoard, playerAI);
+			move.score = result.score;
+		}
+
+		newBoard[availSpots[i]] = move.index;
+
+		moves.push(move);
+	}
+
+	var bestMove;
+	if(player === playerAI) {
+		var bestScore = -10000;
+		for(var i = 0; i < moves.length; i++) {
+			if (moves[i].score > bestScore) {
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	} else {
+		var bestScore = 10000;
+		for(var i = 0; i < moves.length; i++) {
+			if (moves[i].score < bestScore) {
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	}
+
+	return moves[bestMove];
 }
 
 function gameScore(gameWon){
@@ -215,15 +263,15 @@ function fadeOutEffect(){
         }
         if (fadeTarget.style.opacity > 0) {
             fadeTarget.style.opacity -= 0.1;
+            // console.log(fadeTarget.style.opacity);
             if(fadeTarget.style.opacity == 0){
-        fadeTarget.style.display = "none";
-        }
+                fadeTarget.style.display = "none";
+            }
         } else {
             clearInterval(fadeEffect);
         }
-        // console.log(document.querySelector(".person1").innerText)
-        console.log(sessionStorage.getItem("player1"))
         
     }, 200);   
 }
+
 
