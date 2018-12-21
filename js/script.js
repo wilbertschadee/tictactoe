@@ -1,3 +1,4 @@
+window.sessionStorage
 var origBoard;
 var player = '1';
 var player1 = '';
@@ -18,6 +19,10 @@ const winCombos =[
     [6, 4, 2]
 ]
 var i;
+var name1 = window.sessionStorage.getItem("player1");
+var name2 = window.sessionStorage.getItem("player2");
+
+var names = Array;
 
 const cells = document.querySelectorAll('.cell');
 
@@ -87,11 +92,19 @@ function turnClick(square, switchPlayer){
         if(players == true){
 
             if(player == 1){
-                if(!checkTie()) turn(square.target.id, player1);
-                player = 2
+                if(!checkTie()){ 
+                    turn(square.target.id, player1);
+                    player = 2
+                }else{
+                    checkTie()
+                }
             }else if(player == 2){
-                if(!checkTie()) turn(square.target.id, player2);
-                player = 1  
+                if(!checkTie()){
+                turn(square.target.id, player2);
+                player = 1
+                }else{
+                    checkTie()
+                }
             }
 
         }else if(players == false){
@@ -121,16 +134,16 @@ function checkWin(board, player){
     return gameWon;
 }
 
-function gameOver(gameWon){
+function gameOver(gameWon, names){
     for(let index of winCombos[gameWon.index]){
         document.getElementById(index).style.backgroundColor =
         gameWon.player == player1 ? "blue" : gameWon.player == player2 ? "blue" : "yellow";
     }
     for (i = 0; i < cells.length; i++){
         cells[i].removeEventListener('click', turnClick, false);
-        cells[1].style.removeProperty('cursor');
+        cells[i].style.removeProperty('cursor');
     }
-    declareWinner(gameWon.player == player1 ? "Player 1 Wins" : gameWon.player == player2? "Player 2 Wins" : "You Lose");
+    declareWinner(gameWon.player == player1 ? name1 + " Wins" : gameWon.player == player2 ? name2 + " Wins" : "You Lose");
     gameScore(gameWon)
 }
 
@@ -161,8 +174,6 @@ function checkTie(){
 
 function gameScore(gameWon){
 
-console.log(gameWon);
-
     if(gameWon.player == player1){
         winPlayer1 ++;
         document.querySelector('#score1').innerText = winPlayer1;
@@ -174,11 +185,9 @@ console.log(gameWon);
         ties ++
         document.querySelector('#score3').textContent = ties;
     }
-   
 }
 
 function next(prev, next){
-
     document.getElementById(prev).style.display = 'none';
     document.getElementById(next).style.display = 'block';
 }
@@ -186,14 +195,19 @@ function next(prev, next){
 function nameFunc(player, name, prev, next) {
     var person = prompt("Please enter your name", name);
     if (person != null) {
-        document.getElementById(player).innerHTML = person;
+        document.querySelector(player).innerHTML = person;
         document.getElementById(prev).style.display = 'none';
         document.getElementById(next).style.display = 'block';
-    }
+
+        window.sessionStorage.setItem(player, name);
+
+        
+    }   
 }
 
-function fadeOutEffect()
-{
+function fadeOutEffect(){
+    document.querySelector(".person1").innerHTML = name1;
+    document.querySelector(".person2").innerHTML = name2;
     var fadeTarget = document.querySelector(".start");
     var fadeEffect = setInterval(function() {
         if (!fadeTarget.style.opacity) {
@@ -207,11 +221,9 @@ function fadeOutEffect()
         } else {
             clearInterval(fadeEffect);
         }
-        console.log(fadeTarget.style.opacity)
+        // console.log(document.querySelector(".person1").innerText)
+        console.log(sessionStorage.getItem("player1"))
         
-    }, 200);
-    
-
-    
+    }, 200);   
 }
 

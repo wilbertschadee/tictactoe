@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>tic tac toe</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -29,9 +28,7 @@
             <td class="cell" id="8"></td>
         </tr>
     </table>
-
-
-
+    
     <div class="score">
         
         <table>
@@ -48,6 +45,16 @@
         </table>
     </div>
 
+    <div class="buttons">
+        <div class="button">
+            <button onClick="startGame()">RESTART</button>
+        </div>
+        <div class="button">
+            <button class="players" onClick="switchPlayer()">2 PLAYERS</button>
+        </div>
+    </div>
+    
+
     <div class="endGame">
         <div class="text"></div>
         <div class="buttons">
@@ -58,35 +65,24 @@
     </div>
 
     <div class="choosePokemon">
-        <p style="margin: auto; font-size: 20px;">Player 1 </p>
+        <p class="person1" style="margin: auto; font-size: 20px;">Player 1 </p>
         <p style="margin: auto">Choose a pokemon</p>
         <div class="pokemon">
             <img onclick="javascript:pokemonChoose('<img src=img/1.png alt=bulbasaur>')" src=img/1.png alt=Bulbasaur>
             <img onclick="javascript:pokemonChoose('<img src=img/4.png alt=charmander>')" src=img/4.png alt=Charmander>
             <img onclick="javascript:pokemonChoose('<img src=img/7.png alt=Squirtle>')" src=img/7.png alt=Squirtle>
-            <!-- <img onclick="javascript:pokemonChoose('<img src=img/25.png>')" src=img/25.png> -->
         </div>
     </div>
 
     <div class="choosePokemon2">
-            <p style="margin: auto; font-size: 20px;">Player 2 </p>
+            <p class="person2" style="margin: auto; font-size: 20px;">Player 2 </p>
             <p style="margin: auto">Choose a pokemon</p>
             <div class="pokemon">
                 <img onclick="javascript:pokemonChoose2('<img src=img/1.png>')" src=img/1.png>
                 <img onclick="javascript:pokemonChoose2('<img src=img/4.png>')" src=img/4.png>
                 <img onclick="javascript:pokemonChoose2('<img src=img/7.png>')" src=img/7.png>
-                <!-- <img onclick="javascript:pokemonChoose('<img src=img/25.png>')" src=img/25.png> -->
             </div>
         </div>
-
-    <div class="buttons">
-        <div class="button">
-            <button onClick="startGame()">RESTART</button>
-        </div>
-        <div class="button">
-            <button class="players" onClick="switchPlayer()">2 PLAYERS</button>
-        </div>
-    </div>
 
     <div class="start">
         <img src="img/professorOak.png" alt="Professor Oak">
@@ -101,18 +97,18 @@
             <div onclick="next('text3', 'text4')" class="box" id="text3">
                 <p>Myself...<br>
                 I study POKEMON as a profession.</p><i></i></div>
-            <div onclick="javascript:nameFunc('player1', 'Red', 'text4', 'text5')" class="box" id="text4">
+            <div onclick="javascript:nameFunc('.player1', 'Red', 'text4', 'text5')" class="box" id="text4">
                 <p>First, what is your name?</p><i></i>
             </div>
             <div  onclick="javascript:next('text5', 'text6')" class="box" id="text5">
-                <p>Right! So your name is <span id=player1></span> !</p> <i></i>
+                <p>Right! So your name is <span class=player1></span> !</p> <i></i>
             </div>
-            <div  onclick="javascript:nameFunc('player2', 'Bleu', 'text6', 'text7')" class="box" id="text6">
+            <div  onclick="javascript:nameFunc('.player2', 'Bleu', 'text6', 'text7')" class="box" id="text6">
                 <p>Here is your rival. He's been your rival since you were a baby.
                 ...Erm, what is his name again?</p> <i></i>
             </div>
             <div  onclick="javascript:next('text7', 'text8')" class="box" id="text7">
-                <p>That's right! I remember now! His name is <span id=player2></span> !</p> <i></i>
+                <p>That's right! I remember now! His name is <span class=player2></span> !</p> <i></i>
             </div>
             <div  onclick="javascript:fadeOutEffect()" class="box" id="text8">
                 <P>Your very own POKEMON legend is about to unfold! A world of

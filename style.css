@@ -1,6 +1,6 @@
 body{
     background-image: url(img/container_bg.png);    
-    font-family: 'open sans';
+    font-family: "Pokemon GB", Arial, sans-serif;
     margin: 0;
 }
 
@@ -11,13 +11,12 @@ body{
     font-style: normal;
   }
   
-  .box {
-    font-size: 8px;
-    font-family: "Pokemon GB", Arial, sans-serif;
+.box {
+    font-size: 12px;  
     border-radius: 2px;
     padding: 8px;
     width: 90%;
-    height: 42px;
+    height: 72px;
     line-height: 16px;
     margin: auto;
     background: white;
@@ -26,8 +25,9 @@ body{
                 inset 0 1px 0 1px black,
                 0 0 0 1px black,
                 inset 0 0 0 1px black;
-  }
-  .box > i {
+}
+
+.box > i {
     width: 0;
     height: 0;
     border: 5px solid transparent;
@@ -35,19 +35,19 @@ body{
     margin-top: 33px;
     animation: bounce 0.5s ease-in-out 0 infinite alternate;
     float: right;  
-  }
+}
   
-  @keyframes bounce {
+@keyframes bounce {
     from { margin-top: 20px; }
     to { margin-top: 23px; }
-  }
+}
 
-  .box p{
+.box p{
     float: left;
     margin: 0;
     width: calc(100% - 18px);
     text-align: left;
-  }
+}
 
 .start{
     display: block;
@@ -59,6 +59,7 @@ body{
     min-height: 100vh;
     top: 0;
 }
+
 .start img{
     margin: 20px auto;  
 }
@@ -87,11 +88,6 @@ body{
     font-size: 70px;
     padding: 0;
     margin: 0;
-}
-
-.button{
-    display: flex;
-    justify-content: center;
 }
 
 .text{
@@ -187,15 +183,18 @@ img{
 button{
     background-color: #313131;  
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     display: block;
     color: #F2F2F2;
-    margin: 0;
+    padding: 5px 0 ;
     width:100%;
+    font-family : inherit;
+    font-size: 12px;
+
 }
 
 .button{
-    width: 90px;
+    width: 130px;
     padding: 0;
     margin: 0 3px;
 }
