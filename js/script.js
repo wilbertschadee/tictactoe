@@ -39,8 +39,6 @@ function pokemonChoose(img, switchplayer){
     }
 }
 
-
-
 function pokemonChoose2(img, switchplayer){
     var src = img;
 
@@ -49,7 +47,6 @@ function pokemonChoose2(img, switchplayer){
         document.querySelector(".choosePokemon2").style.display = "none";
     }
 }
-
 
 function startGame(){
     document.querySelector(".endGame").style.display = "none";
@@ -89,18 +86,22 @@ function turnClick(square, switchPlayer){
         if(players == true){
             
             if(player == 1){
-                if(!checkTie()){ 
-                    turn(square.target.id, player1);
-                    player = 2
+                if(emptySquares().length == 0){
+                    declareWinner('Tie game')
+                    console.log('tie');
                 }else{
-                    checkTie()
+                    turn(square.target.id, player1);
+                    player = 2;
+                    console.log('player1');
                 }
             }else if(player == 2){
-                if(!checkTie()){
-                turn(square.target.id, player2);
-                player = 1
+                if(emptySquares().length == 0){
+                    declareWinner('Tie game');
+                    console.log('tie')
                 }else{
-                    checkTie()
+                    turn(square.target.id, player2);
+                    player = 1;
+                    console.log('player1');
                 }
             }
 

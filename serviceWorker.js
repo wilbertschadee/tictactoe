@@ -2,16 +2,16 @@ const cacheName = 'v1';
 const cacheAssets = [
     'index.html',
     'style.css',
-    'js/script.js',
-    'js/swReg.js',
+    '/js/script.js',
+    '/js/swReg.js',
     'Pokemon_GB.ttf',
-    'img/1.png',
-    'img/4.png',
-    'img/7.png',
-    'img/25.png',
-    'img/body_bg.png',
-    'img/Container.png',
-    'img/professorOak.png'
+    '/img/1.png',
+    '/img/4.png',
+    '/img/7.png',
+    '/img/25.png',
+    '/img/body_bg.png',
+    '/img/Container_bg.png',
+    '/img/professorOak.png'
 ];
 
 
